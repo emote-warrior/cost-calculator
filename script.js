@@ -31,7 +31,15 @@ function calculateCost() {
     }
 
     const totalCost = fuelOrChargingCost + parkingCosts;
+    const costPlus50 = totalCost * 1.5;
+    const costPlus75 = totalCost * 1.75;
+    const costPlus100 = totalCost * 2;
+    const costPlus150 = totalCost * 2.5;
 
     document.getElementById('fuelCost').innerText = `Fuel/Charging Cost: ₹${fuelOrChargingCost.toFixed(2)}`;
     document.getElementById('totalCost').innerText = `Total Commuting Cost: ₹${totalCost.toFixed(2)}`;
+    document.getElementById('costPlus50').innerText = `+50%: ₹${costPlus50.toFixed(2)}`;
+    document.getElementById('costPlus75').innerText = `+75%: ₹${costPlus75.toFixed(2)}`;
+    document.getElementById('costPlus100').innerText = `+100%: ₹${costPlus100.toFixed(2)}`;
+    document.getElementById('costPlus150').innerText = `+150%: ₹${costPlus150.toFixed(2)}`;
 }
