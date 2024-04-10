@@ -26,7 +26,14 @@ function calculateCost() {
         fuelOrChargingCost = (journeyDistance / efficiency) * chargingCostPerKWh;
     } else {
         const mileage = Number(document.getElementById('mileage').value);
-        const fuelCost = fuelType === 'diesel' ? 87.5 : 95; // ₹ per liter
+        let fuelCost;
+        if (fuelType === 'diesel') {
+            fuelCost = 87.5; // ₹ per liter
+        } else if (fuelType === 'petrol') {
+            fuelCost = 95; // ₹ per liter
+        } else if (fuelType === 'cng') {
+            fuelCost = 76.5; // ₹ per kg
+        }
         fuelOrChargingCost = (journeyDistance / mileage) * fuelCost;
     }
 
