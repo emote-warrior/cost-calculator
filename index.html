@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commuting Cost Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Commuting Cost Calculator</h1>
+    <label for="fuelType">Fuel Type:</label>
+    <select id="fuelType" onchange="toggleFields()">
+        <option value="diesel">Diesel</option>
+        <option value="petrol">Petrol</option>
+        <option value="electric">Electric</option>
+    </select>
+    <input type="number" id="journeyDistance" placeholder="Journey Distance (in km)">
+    <div id="ICEFields">
+        <input type="number" id="mileage" placeholder="Vehicle Mileage (for ICE vehicles, km/l)">
+    </div>
+    <div id="EVFields" style="display: none;">
+        <input type="number" id="batteryCapacity" placeholder="Battery Capacity (in kWh)">
+        <input type="number" id="range" placeholder="EV Range (in km)">
+    </div>
+    <input type="number" id="parkingCosts" placeholder="Parking Costs (in ₹)">
+    <button onclick="calculateCost()">Calculate</button>
+    <div id="fuelCost">Fuel/Charging Cost: </div>
+    <div id="totalCost" style="color: red;">Total Commuting Cost: </div>
+    <script src="script.js"></script>
+</body>
+</html>
