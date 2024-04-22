@@ -51,14 +51,18 @@ function calculateCost() {
     document.getElementById('fuelCost').innerText = `Fuel/Charging Cost: ₹${fuelOrChargingCost.toFixed(2)}`;
     document.getElementById('totalCost').innerText = `Total Commuting Cost (Current): ₹${weeklyCost.toFixed(2)}`;
     document.getElementById('monthlyCostCurrent').innerText = `Monthly Commuting Cost (Current): ₹${monthlyCost.toFixed(2)}`;
-    document.getElementById('costPlus50').innerText = `+50%: ₹${costPlus50.toFixed(2)}`;
-    document.getElementById('monthlyCostPlus50').innerText = `Monthly +50%: ₹${(costPlus50 - monthlyCost).toFixed(2)}`;
-    document.getElementById('costPlus75').innerText = `+75%: ₹${costPlus75.toFixed(2)}`;
-    document.getElementById('monthlyCostPlus75').innerText = `Monthly +75%: ₹${(costPlus75 - monthlyCost).toFixed(2)}`;
-    document.getElementById('costPlus100').innerText = `+100%: ₹${costPlus100.toFixed(2)}`;
-    document.getElementById('monthlyCostPlus100').innerText = `Monthly +100%: ₹${(costPlus100 - monthlyCost).toFixed(2)}`;
-    document.getElementById('costPlus150').innerText = `+150%: ₹${costPlus150.toFixed(2)}`;
-    document.getElementById('monthlyCostPlus150').innerText = `Monthly +150%: ₹${(costPlus150 - monthlyCost).toFixed(2)}`;
-    document.getElementById('costPlus200').innerText = `+200%: ₹${costPlus200.toFixed(2)}`;
-    document.getElementById('monthlyCostPlus200').innerText = `Monthly +200%: ₹${(costPlus200 - monthlyCost).toFixed(2)}`;
+    document.getElementById('costPlus50').innerText = `Daily +50%: ₹${costPlus50.toFixed(2)}`;
+    document.getElementById('monthlyCostPlus50').innerText = `Monthly +50%: ₹${(monthlyCost * 1.5).toFixed(2)}`;
+
+    document.getElementById('costPlus75').innerText = `Daily +75%: ₹${costPlus75.toFixed(2)}`;
+    document.getElementById('monthlyCostPlus75').innerText = `Monthly +75%: ₹${(monthlyCost * 1.75).toFixed(2)}`;
+
+    document.getElementById('costPlus100').innerText = `Daily +100%: ₹${costPlus100.toFixed(2)}`;
+    document.getElementById('monthlyCostPlus100').innerText = `Monthly +100%: ₹${(monthlyCost * 2).toFixed(2)}`;
+
+    document.getElementById('costPlus150').innerText = `Daily +150%: ₹${costPlus150.toFixed(2)}`;
+    document.getElementById('monthlyCostPlus150').innerText = `Monthly +150%: ₹${(monthlyCost * 2.5).toFixed(2)}`;
+
+    document.getElementById('costPlus200').innerText = `Daily +200%: ₹${costPlus200.toFixed(2)}`;
+    document.getElementById('monthlyCostPlus200').innerText = `Monthly +200%: ₹${(monthlyCost * 3).toFixed(2)}`;
 }
