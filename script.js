@@ -18,7 +18,7 @@ function calculateCost() {
     const parkingCosts = Number(document.getElementById('parkingCosts').value);
     const travelFrequency = Number(document.getElementById('travelFrequency').value);
     let fuelOrChargingCost = 0;
-    let weeklyCost, monthlyCost;
+    let totalDailyCost, weeklyCost, monthlyCost;
 
     if (fuelType === 'electric') {
         const batteryCapacity = Number(document.getElementById('batteryCapacity').value);
@@ -39,26 +39,26 @@ function calculateCost() {
         fuelOrChargingCost = (journeyDistance / mileage) * fuelCost;
     }
 
-    weeklyCost = (fuelOrChargingCost + parkingCosts) * travelFrequency;
-    monthlyCost = weeklyCost * 4;  // Assuming 4 weeks in a month
-
-    const monthlyCostPlus50 = monthlyCost * 1.5;
-    const monthlyCostPlus75 = monthlyCost * 1.75;
-    const monthlyCostPlus100 = monthlyCost * 2;
-    const monthlyCostPlus150 = monthlyCost * 2.5;
-    const monthlyCostPlus200 = monthlyCost * 3;
+    // Correct calculation of total daily cost
+    totalDailyCost = fuelOrChargingCost + parkingCosts;
+    
+    // Calculation of weekly cost based on the frequency
+    weeklyCost = totalDailyCost * travelFrequency;
+    
+    // Calculation of monthly cost assuming 4 weeks per month
+    monthlyCost = weeklyCost * 4;
 
     document.getElementById('fuelCost').innerText = `Fuel/Charging Cost: ₹${fuelOrChargingCost.toFixed(2)}`;
-    document.getElementById('totalCost').innerText = `Total Commuting Cost (Current): ₹${weeklyCost.toFixed(2)}`;
+    document.getElementById('totalCost').innerText = `Total Commuting Cost (Current): ₹${totalDailyCost.toFixed(2)}`;
     document.getElementById('monthlyCostCurrent').innerText = `Monthly Commuting Cost (Current): ₹${monthlyCost.toFixed(2)}`;
-    document.getElementById('costPlus50').innerText = `Daily +50%: ₹${(weeklyCost * 1.5).toFixed(2)}`;
-    document.getElementById('monthlyCostPlus50').innerText = `Monthly +50%: ₹${monthlyCostPlus50.toFixed(2)}`;
-    document.getElementById('costPlus75').innerText = `Daily +75%: ₹${(weeklyCost * 1.75).toFixed(2)}`;
-    document.getElementById('monthlyCostPlus75').innerText = `Monthly +75%: ₹${monthlyCostPlus75.toFixed(2)}`;
-    document.getElementById('costPlus100').innerText = `Daily +100%: ₹${(weeklyCost * 2).toFixed(2)}`;
-    document.getElementById('monthlyCostPlus100').innerText = `Monthly +100%: ₹${monthlyCostPlus100.toFixed(2)}`;
-    document.getElementById('costPlus150').innerText = `Daily +150%: ₹${(weeklyCost * 2.5).toFixed(2)}`;
-    document.getElementById('monthlyCostPlus150').innerText = `Monthly +150%: ₹${monthlyCostPlus150.toFixed(2)}`;
-    document.getElementById('costPlus200').innerText = `Daily +200%: ₹${(weeklyCost * 3).toFixed(2)}`;
-    document.getElementById('monthlyCostPlus200').innerText = `Monthly +200%: ₹${monthlyCostPlus200.toFixed(2)}`;
+    document.getElementById('costPlus50').innerText = `Daily +50%: ₹${(totalDailyCost * 1.5).toFixed(2)}`;
+    document.getElementById('monthlyCostPlus50').innerText = `Monthly +50%: ₹${(monthlyCost * 1.5).toFixed(2)}`;
+    document.getElementById('costPlus75').innerText = `Daily +75%: ₹${(totalDailyCost * 1.75).toFixed(2)}`;
+    document.getElementById('monthlyCostPlus75').innerText = `Monthly +75%: ₹${(monthlyCost * 1.75).toFixed(2)}`;
+    document.getElementById('costPlus100').innerText = `Daily +100%: ₹${(totalDailyCost * 2).toFixed(2)}`;
+    document.getElementById('monthlyCostPlus100').innerText = `Monthly +100%: ₹${(monthlyCost * 2).toFixed(2)}`;
+    document.getElementById('costPlus150').innerText = `Daily +150%: ₹${(totalDailyCost * 2.5).toFixed(2)}`;
+    document.getElementById('monthlyCostPlus150').innerText = `Monthly +150%: ₹${(monthlyCost * 2.5).toFixed(2)}`;
+    document.getElementById('costPlus200').innerText = `Daily +200%: ₹${(totalDailyCost * 3).toFixed(2)}`;
+    document.getElementById('monthlyCostPlus200').innerText = `Monthly +200%: ₹${(monthlyCost * 3).toFixed(2)}`;
 }
