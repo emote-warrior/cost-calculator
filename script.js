@@ -39,7 +39,7 @@ function calculateCost() {
         fuelOrChargingCost = (journeyDistance / mileage) * fuelCost;
     }
 
-    weeklyCost = fuelOrChargingCost * travelFrequency;
+    weeklyCost = (fuelOrChargingCost + parkingCosts) * travelFrequency;
     monthlyCost = weeklyCost * 4;  // Assuming 4 weeks in a month
 
     const costPlus50 = weeklyCost * 1.5;
